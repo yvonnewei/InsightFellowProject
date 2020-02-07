@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load rest_framework %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <meta charset="UTF-8">
+    <title>Profiles</title>
+</head>
+<body>
+    <h1 style="color:#008CBA;text-align:center; margin-top: 100px;
+    margin-bottom: 50px;">Profiles</h1>
+        <ul>
+<!--            {% for patient in patients %}-->
+
+               <div class="container"
+                    style="border-radius: 5px;
+                          background-color: #f2f2f2;
+                          padding: 50px;
+                          width: 35%;
+                          font-size: 16px;
+">
+                   <label class="col-35" style="float: left;
+  width: 35%;
+  margin-top: 6px;padding: 12px 12px 12px 0;
+  display: inline-block;">ID: </label><p class="col-65" style="width: 65%;
+  padding: 20px;
+  resize: vertical;" >{{ patient.id}}</p>
+                   <label class="col-35" style="float: left;
+  width: 35%;
+  margin-top: 6px;padding: 12px 12px 12px 0;
+  display: inline-block;">Last name: </label><p class="col-65" style="width: 65%;
+  padding: 20px;
+  resize: vertical;" >{{ patient.last_name}}</p>
+                    <label class="col-35" style="float: left;
+  width: 35%;
+  margin-top: 6px;padding: 12px 12px 12px 0;
+  display: inline-block;">First name: </label><p class="col-65" style="width: 65%;
+  padding: 20px;
+  resize: vertical;" >{{ patient.first_name}}</p>
+                   <label class="col-35" style="float: left;
+  width: 35%;
+  margin-top: 6px;padding: 12px 12px 12px 0;
+  display: inline-block;">Date of Birth: </label><p class="col-65" style="width: 65%;
+  padding: 20px;
+  resize: vertical;" >{{ patient.date_of_birth}}</p>
+                   <label class="col-35" style="float: left;
+  width: 35%;
+  margin-top: 6px;padding: 12px 12px 12px 0;
+  display: inline-block;">Provider: </label><p class="col-65" style="width: 65%;
+  padding: 20px;
+  resize: vertical;" >{{ patient.provider}}</p>
+                </div>
+<!--            {% endfor %}-->
+        </ul>
+
+</body>
+</html>

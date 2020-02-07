@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <meta charset="UTF-8">
+    <title>Data Guard</title>
+</head>
+<body>
+{% block content %}
+<h2 style="color:#008CBA;text-align:center;margin:100px">Get Information</h2>
+<div class="container" style="text-align:center;border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 50px;
+    width: 50%;">
+    <form method="post" >
+        {% csrf_token %}
+        <div class="row" style="margin:20px">
+        <label class="col-25" style="float: left;
+  width: 25%;
+  margin-top: 6px;padding: 12px 12px 12px 0;
+  display: inline-block;">Log in as: </label>
+
+            <select class="col-75" name="role" id="role" style="width: 75%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;">
+            <option>Admin</option>
+            <option>Staff</option>
+        </select></div>
+
+         <div class="row"style="margin:20px">
+        <label class="col-25" style="float: left;
+  width: 25%;
+  margin-top: 6px;padding: 12px 12px 12px 0;
+  display: inline-block;">Patient Id: </label>
+             <input class="col-75" type="text" name="patient_id" placeholder="Your Patient ID.." style="float: left;
+  width: 75%;
+  margin-top: 6px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  ">
+         </div>
+
+         <div class="row" style="margin:20px">
+        <button type="submit"
+                style="background-color: #008CBA;
+                      border: none;
+                      color: white;
+                      padding: 15px 32px;
+                      text-align: center;
+                      text-decoration: none;
+                      display: inline-block;
+                      font-size: 18px;
+                      border-radius: 4px;
+                      margin-top: 40px;">Get your patient</button>
+         </div>
+    </form>
+</div>
+<!--  {% if user %}-->
+<!--    <p><strong>{{ user.name }}</strong> has <strong>{{ user.public_repos }}</strong> public repositories.</p>-->
+<!--  {% endif %}-->
+{% endblock %}
+</body>
+</html>

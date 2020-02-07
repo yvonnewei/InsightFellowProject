@@ -1,0 +1,11 @@
+.idea/
+datapea/__init__.py
+datapea/__pycache__/
+datapea/migrations/
+InsightProject/__init__.py
+InsightProject/.idea/
+InsightProject/__pycache__/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
