@@ -21,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 
+SECRET_KEY = '' 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['Insight-DE-dev-env.us-east-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['ec2-18-233-57-120.compute-1.amazonaws.com','datapea.me','www.datapea.me']
 
 # Application definition
 
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'datapea'
+    'datapea',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'InsightProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,38 +71,38 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'InsightProject.wsgi.application'
 
-#Database
-#https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'datapea',
-        'USER': 'ywei',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5432'
-    }
-}
-#
-# if 'RDS_DB_NAME' in os.environ:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#             'NAME': os.environ['insight-database'],
-#             'USER': os.environ['postgres'],
-#             'PASSWORD': os.environ['password'],
-#             'HOST': os.environ['insight-database.cuxkqvd2pa3c.us-east-1.rds.amazonaws.com'],
-#             'PORT': os.environ['5432'],
-#         }
-#     }
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#         }
-#     }
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME': 'datapea',
+         'USER': 'postgres',
+         'PASSWORD': 'password',
+         'HOST': 'localhost',
+         'PORT': ''
+     }
+ }
+
+#if 'RDS_DB_NAME' in os.environ:
+#    DATABASES = {
+#        'default': {
+#            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#            'NAME': os.environ['insight-database'],
+#            'USER': os.environ['postgres'],
+#            'PASSWORD': os.environ['password'],
+#            'HOST': os.environ['insight-database.cuxkqvd2pa3c.us-east-1.rds.amazonaws.com'],
+#            'PORT': os.environ['5432'],
+#        }
+#    }
+#else:
+#    DATABASES = {
+#        'default': {
+#            'ENGINE': 'django.db.backends.sqlite3',
+#            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#        }
+#    }
 
 
 # Password validation
@@ -157,3 +157,12 @@ REST_FRAMEWORK = {
 }
 
 # AUTH_USER_MODEL = 'datapea.User'
+
+STATIC_URL = '/static/'
+
+# Add these new lines
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

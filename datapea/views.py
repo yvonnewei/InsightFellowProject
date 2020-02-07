@@ -39,7 +39,8 @@ class Home(generics.RetrieveAPIView):
             role = request.POST.get('role')
             print("username: {}".format(username))
             print("role: {}".format(role))
-            url = 'http://localhost:8000/patients/{}'.format(username)
+            #url = 'http://www.datapea.me/patients/{}'.format(username)
+            url = '/patients/{}'.format(username)
             print("url: {}".format(url))
             if role == 'Admin':
                 user = authenticate(username='admin', password='password')
@@ -47,16 +48,14 @@ class Home(generics.RetrieveAPIView):
                 user = authenticate(username='staff1', password='chrdwhdhxt')
             print('user: {}'.format(user))
             if user:
-                login(request, user)
-                auth = ADMIN_AUTH if role == 'Admin' else STAFF
-                response = requests.get(url, auth=auth)
-                if response.status_code == 200:
-                    return HttpResponseRedirect(url)
-                print("response: {}".format(response))
-                # user = response.json()
-                if response.status_code == 403:
-                    # render(request, 'home.html')
-                    raise PermissionDenied
+            	login(request, user)
+            	auth = ADMIN_AUTH if role == 'Admin' else STAFF
+            	#response = requests.get(url, auth=auth)
+            	#if response.status_code == 200:
+            	return HttpResponseRedirect(url)
+            	#print("response: {}".format(response))
+            	#if response.status_code == 403:
+            		#raise PermissionDenied
         # return render(request, 'home.html', {'user': user})
         return render(request, 'home.html')
 
