@@ -1,8 +1,6 @@
-from django.contrib.auth.models import User
+
 from rest_framework import serializers
 
-# from datapea.models import Provider, Patient, Drug
-# /////////////////////////////////////////////////////////////
 
 from datapea.models import Patient
 from django.contrib.auth.models import User
@@ -13,7 +11,6 @@ class PatientSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Patient
-        # fields = '__all__'
         fields = ['url',
                   'id',
                   'last_name',
@@ -28,7 +25,6 @@ class PatientSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    # patients = serializers.PrimaryKeyRelatedField(many=True, queryset=Patient.objects.all())
     patients = serializers.HyperlinkedRelatedField(many=True, view_name='patient-detail', read_only=True)
 
     class Meta:
