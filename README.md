@@ -4,23 +4,24 @@
 - A backend API to manage the access to database for different provider and patient groups which can efficiently increase the security level of sensitive data and customize access based on different roles
 - Database schemas and rule tables with PostgreSQL and Django for user authentication and privileges
 
-### templates folder
-html pages, including home, patient_detail, and forbidden page
+### Files in Repo
+#### templates
+Renders the information to be presented to the user. Including html pages, including home, patient_detail, and forbidden page
 
-### models.py
-create role model for patient
+#### models.py
+Creates role model for patient, contains the essential fields and behaviors of the data I storing. The patient model maps to a single database table.
 
-### permissions.py
-define permission rules
+#### permissions.py
+Define permission rules
 
-### serializers.py
+#### serializers.py
 processing serializers
 
-### urls.py
+#### urls.py
 create API endpoints
 
-### views.py
+#### views.py
 create view for each class
 
-### requirement.txt
+#### requirement.txt
 package and environment required elements

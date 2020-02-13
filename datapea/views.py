@@ -18,7 +18,7 @@ from rest_framework.response import Response
 from django.shortcuts import render, redirect
 
 ADMIN_AUTH = ('admin', 'password')
-STAFF = ('staff1', 'chrdwhdhxt')
+STAFF = ('staff', 'chrdwhdhxt')
 
 
 class Home(generics.RetrieveAPIView):
@@ -41,7 +41,7 @@ class Home(generics.RetrieveAPIView):
             if role == 'Admin':
                 user = authenticate(username='admin', password='password')
             else:
-                user = authenticate(username='staff1', password='chrdwhdhxt')
+                user = authenticate(username='staff', password='chrdwhdhxt')
             print('user: {}'.format(user))
             if user:
             	login(request, user)
